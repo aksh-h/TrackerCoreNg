@@ -8,6 +8,6 @@ namespace RevenueTracker.IRepository
 {
     public interface ICountry
     {
-        Task<List<Country>> GetAllCountry();
+        Task<List<TblCountryMaster>> GetAllCountry();
     }
 }

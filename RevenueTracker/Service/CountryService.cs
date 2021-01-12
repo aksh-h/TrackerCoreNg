@@ -16,9 +16,9 @@ namespace RevenueTracker.Service
         {
             _context = context;
         }
-        public async Task<List<Country>> GetAllCountry()
+        public async Task<List<TblCountryMaster>> GetAllCountry()
         {
-            return await _context.Countries.AsNoTracking().ToListAsync();
+            return await _context.TblCountryMasters.AsNoTracking().ToListAsync();
         }
     }
 }
