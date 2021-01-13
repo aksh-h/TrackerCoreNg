@@ -22,6 +22,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     CountryComponent,
     StateComponent,
     CurrencyComponent
+  ],
+  providers: [
   ]
 })
 export class MasterModule { }

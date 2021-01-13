@@ -1,7 +1,8 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, NgModule, OnInit } from '@angular/core';
-import { Actions } from '../../httpservices/Actions.enum';
-import { HttpService } from '../../httpservices/httpservice.service';
+import { Country } from '../../_models/country';
+import { Actions } from '../../_service/Actions.enum';
+import { ApiService } from '../../_service/api.service';
 
 @Component({
   selector: 'app-country',
@@ -11,21 +12,23 @@ import { HttpService } from '../../httpservices/httpservice.service';
 
 export class CountryComponent implements OnInit {
 
-  public displayedColumns = ['userId', 'userName'];
+  public displayedColumns = ['id', 'name'];
   selection = new SelectionModel<string>(true, []);
   dataSource: null;
   actions = Actions;
-
-  constructor(private httpservice: HttpService) { }
+  country: Country[];
+  constructor(private service: ApiService) { }
 
   ngOnInit() {
+    this.GetCountries();
   }
 
   GetCountries() {
-    this.httpservice.GetAll(this.actions.CountryAction).subscribe((res) => {
-      console.log(res);
-      return res;
-    })
+    this.service.GetAll(this.actions.CountryAction).subscribe((res : Country[]) => {
+      this.country = res;
+      console.log(this.country);
+    }, error => {
+      alert(error);
+    });
   }
-
 }

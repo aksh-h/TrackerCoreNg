@@ -32,6 +32,11 @@ namespace RevenueTracker
             services.AddDbContext<RevenueTrackerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddScoped<ICountry, CountryService>();
+            services.AddCors(opt => opt.AddPolicy("AllPolicy", config => {
+                config.AllowAnyOrigin();
+                config.AllowAnyMethod();
+                config.AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +50,8 @@ namespace RevenueTracker
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("AllPolicy");
 
             app.UseAuthorization();
 
