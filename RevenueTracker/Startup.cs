@@ -31,7 +31,7 @@ namespace RevenueTracker
         {
             services.AddDbContext<RevenueTrackerContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
-            services.AddScoped<ICountry, CountryService>();
+            services.AddScoped<IMaster, MasterService>();
             services.AddCors(opt => opt.AddPolicy("AllPolicy", config => {
                 config.AllowAnyOrigin();
                 config.AllowAnyMethod();

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace RevenueTracker.IRepository
 {
-    public interface ICountry
+    public interface IMaster
     {
         Task<List<TblCountryMaster>> GetAllCountry();
+
+        Task<List<TblStateMaster>> GetAllStates();
     }
 }

@@ -17,6 +17,8 @@ export class CountryComponent implements OnInit {
   dataSource: null;
   actions = Actions;
   country: Country[];
+  pageSize = 5;
+  pageIndex = 0;
   constructor(private service: ApiService) { }
 
   ngOnInit() {
@@ -24,8 +26,9 @@ export class CountryComponent implements OnInit {
   }
 
   GetCountries() {
-    this.service.GetAll(this.actions.CountryAction).subscribe((res : Country[]) => {
+    this.service.GetAll(this.actions.CountryAction).subscribe((res: Country[]) => {
       this.country = res;
+
       console.log(this.country);
     }, error => {
       alert(error);

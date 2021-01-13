@@ -13,9 +13,9 @@ namespace RevenueTracker.Controllers
     [ApiController]
     public class MasterController : ControllerBase
     {
-        private ICountry _repo;
+        private IMaster _repo;
 
-        public MasterController(ICountry country)
+        public MasterController(IMaster country)
         {
             _repo = country;
         }
@@ -23,6 +23,12 @@ namespace RevenueTracker.Controllers
         public async Task<IActionResult> GetAllCountry()
         {
             return Ok(await _repo.GetAllCountry());
+        }
+
+        [HttpGet("states")]
+        public async Task<IActionResult> GetAllStates()
+        {
+            return Ok(await _repo.GetAllStates());
         }
     }
 }
