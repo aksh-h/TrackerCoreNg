@@ -7,6 +7,7 @@ import { CurrencyComponent } from './currency/currency.component';
 import { MatInputModule } from '@angular/material/input'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCell, MatHeaderCell, MatTable, MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { MatCell, MatHeaderCell, MatTable, MatTableModule } from '@angular/mater
     MasterRouteModule,
     MatInputModule,
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   declarations: [
     CountryComponent,

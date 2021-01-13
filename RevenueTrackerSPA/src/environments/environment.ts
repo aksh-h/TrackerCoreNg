@@ -15,7 +15,8 @@ export const environment = {
     appId: "1:422055031001:web:261c3f03c6dbe830df8ec8",
     measurementId: "G-NYGXB63DCC"
   },
-  mailApi: '/assets/list.json'
+  mailApi: '/assets/list.json',
+  APIURL: 'http://localhost:4200/api/'
 };
 export const palete = {
     primary: '#D32F2F',
